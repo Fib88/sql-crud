@@ -4,4 +4,5 @@
 class Teacher extends Student
 {
 
+
 }
