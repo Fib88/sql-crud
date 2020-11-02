@@ -1,7 +1,7 @@
 <?php
 
 
-class Student 
+class Student
 {
     private string $name;
     private string $email;
@@ -22,7 +22,7 @@ class Student
         $this->id = $id;
         $this->classId = $classId;
     }
-
+    
     /**
      * @return string
      */
