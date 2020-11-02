@@ -62,7 +62,7 @@ class Handler
             if ($course['name'] == $classeName) {
                 $classes_id = $course['id'];}
         }
-        $handle = $this->pdo->prepare('INSERT INTO student ( name, email,classes_id) VALUES (:name,:email,:classes_id )');
+        $handle = $this->pdo->prepare('INSERT INTO students ( name, email,classes_id) VALUES (:name,:email,:classes_id )');
         $handle->bindValue(':name', $name);
         $handle->bindValue(':email', $email);
         $handle->bindValue(':classes_id', $classes_id);
@@ -93,7 +93,7 @@ class Handler
                 $classes_id = $course['id'];
             }
         }
-        $handle = $this->pdo->prepare('UPDATE teachers SET name =:name, email =:email, classes_id = :classes_id WHERE id = :id');
+        $handle = $this->pdo->prepare('UPDATE students SET name =:name, email =:email, classes_id = :classes_id WHERE id = :id');
         $handle->bindValue(':id', $id);
         $handle->bindValue(':name', $name);
         $handle->bindValue(':email', $email);
