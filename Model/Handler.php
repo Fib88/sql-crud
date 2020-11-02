@@ -43,7 +43,7 @@ class Handler
 
     public function addTeacher($name, $email, $classeName)
     {
-        $classes = $this->pdo->getClasses();
+        $classes = $this->getClasses();
         foreach ($classes as $course) {
             if ($course['name'] == $classeName) {
                 $classes_id = $course['id'];}
@@ -57,7 +57,7 @@ class Handler
 
     public function addStudent($name, $email, $classeName)
     {
-        $classes = $this->pdo->getClasses();
+        $classes = $this->getClasses();
         foreach ($classes as $course) {
             if ($course['name'] == $classeName) {
                 $classes_id = $course['id'];}
@@ -71,7 +71,7 @@ class Handler
 
     public function updateTeacher($id,$name, $email, $classeName)
     {
-        $classes = $this->pdo->getClasses();
+        $classes = $this->getClasses();
         foreach ($classes as $course) {
             if ($course['name'] == $classeName) {
                 $classes_id = $course['id'];
@@ -85,9 +85,25 @@ class Handler
         $handle->execute();
     }
 
-    function getStudents($teacherCourse)
+    public function updateStudent($id,$name, $email, $classeName)
     {
-        $students = $this->pdo->getStudents();
+        $classes = $this->getClasses();
+        foreach ($classes as $course) {
+            if ($course['name'] == $classeName) {
+                $classes_id = $course['id'];
+            }
+        }
+        $handle = $this->pdo->prepare('UPDATE teachers SET name =:name, email =:email, classes_id = :classes_id WHERE id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->bindValue(':name', $name);
+        $handle->bindValue(':email', $email);
+        $handle->bindValue(':classes_id', $classes_id);
+        $handle->execute();
+    }
+
+    function getStudentsCourse($teacherCourse)
+    {
+        $students = $this->getStudents();
         $teacherStudents = array();
         foreach ($students as $student) {
             if ($student['class_id'] == $teacherCourse) {
