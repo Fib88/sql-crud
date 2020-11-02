@@ -1,19 +1,32 @@
 <?php
 declare(strict_types=1);
 
-//include all your model files here
-require 'Model/User.php';
-//include all your controllers here
-require 'Controller/HomepageController.php';
-require 'Controller/InfoController.php';
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
-//you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
-//this file should never be more than 20 lines of code!
+session_start();
+require 'Model/Handler.php';
+require 'Model/Course.php';
+require 'Model/Student.php';
+require 'Model/Teacher.php';
+require 'View/body.php';
 
-$controller = new HomepageController();
-if(isset($_GET['page']) && $_GET['page'] === 'info') {
-    $controller = new InfoController();
+var_dump($_POST);
+
+if (isset($_POST["students"])) {
+    require 'Controller/studentController.php';
+
 }
 
+if (isset($_POST["teachers"])) {
+    require 'Controller/teacherController.php';
 
-$controller->render($_GET, $_POST);
+}
+if (isset($_POST["classes"])) {
+    require 'Controller/courseController.php';
+
+} else {
+    require 'View/landingpage.php';
+}
+
