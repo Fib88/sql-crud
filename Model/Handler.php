@@ -27,4 +27,17 @@ class Handler
         return $handle->fetchAll();
     }
 
+    public function getTeachers()
+    {
+        $handle = $this->pdo->prepare('SELECT * FROM teachers');
+        $handle->execute();
+        return $handle->fetchAll();
+    }
+
+    public function getClasses()
+    {
+        $handle = $this->pdo->prepare('SELECT * FROM classes');
+        $handle->execute();
+        return $handle->fetchAll();
+    }
 }
