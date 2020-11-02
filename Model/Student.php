@@ -22,7 +22,7 @@ class Student
         $this->id = $id;
         $this->classId = $classId;
     }
-    
+
     /**
      * @return string
      */
