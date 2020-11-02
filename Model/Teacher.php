@@ -1,7 +1,7 @@
 <?php
 
 
-class Teacher
+class Teacher extends Student
 {
 
 
