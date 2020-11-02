@@ -106,7 +106,7 @@ class Handler
         $students = $this->getStudents();
         $teacherStudents = array();
         foreach ($students as $student) {
-            if ($student['class_id'] == $teacherCourse) {
+            if ($student['class_id'] == $teacherCourse)
                 array_push($teacherStudents, $student);
             }
         }
