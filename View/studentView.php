@@ -11,6 +11,17 @@
             <td>
                 <?php echo $student["email"]; ?>
             </td>
+            <td>
+                <form>
+                    <input type="submit" name="edit" value=<?php $student["id"]?>>
+                </form>
+            </td>
+
+            <td>
+                <form>
+                    <input type="submit" name="delete" value=<?php $student["id"]?>>
+                </form>
+            </td>
         </tr>
     <?php endforeach; ?>
 
