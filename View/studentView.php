@@ -1,16 +1,14 @@
 <?php
-echo "the view has been loaded";
 ?>
 
 <table>
     <?php foreach ($students as $student): ?>
         <tr>
             <td>
-                <?php $student["name"]; ?>
-                <a href=""
+                <?php echo $student["name"]; ?>
             </td>
             <td>
-                <?php $student["email"]; ?>
+                <?php echo $student["email"]; ?>
             </td>
         </tr>
     <?php endforeach; ?>
