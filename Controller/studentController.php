@@ -6,6 +6,10 @@ if(isset($_POST["students"])){
     $students = $showStudents->getStudents();
 }
 
+
+
+
+
 require "View/studentView.php";
 
 
