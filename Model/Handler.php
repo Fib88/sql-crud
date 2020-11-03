@@ -129,5 +129,32 @@ class Handler
 
     }
 
+    function deleteStudent($studentId)
+    {
+        $students = $this->getStudents();
+        foreach ($students as $student) {
+            if ($student->getId() == $studentId) {
+
+                $handle = $this->pdo->prepare('ALTER TABLE classes NO CHECK CONSTRAINT ALL; DELETE FROM students WHERE id = :id; ALTER TABLE classes CHECK CONSTRAINT ALL;');
+                $handle->bindValue(':id', $studentId);
+                $handle->execute();
+            }
+        }
+
+    }
+
+    function deleteClass($classId)
+    {
+        $classes = $this->getClasses();
+        foreach ( $classes as $class) {
+            if ($class->getId() == $classId) {
+                $handle = $this->pdo->prepare('DELETE FROM classes WHERE id = :id;');
+                $handle->bindValue(':id', $classId);
+                $handle->execute();
+            }
+        }
+
+    }
+
 
 }
