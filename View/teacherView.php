@@ -2,6 +2,7 @@
     <?php foreach ($teachers as $teacher): ?>
         <tr>
             <td>
+
                 <a href="?page=teachers&teacher=<?php echo $teacher["classes_id"]; ?>"
                    class="text-light"><?php echo $teacher["name"]; ?></a>
             </td>
@@ -49,3 +50,6 @@
 
     </table>
 <?php endif; ?>
+
+
+
