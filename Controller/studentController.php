@@ -1,4 +1,5 @@
 <?php
+
 require "View/studentView.php";
 require_once  "Model/Handler.php";
 
