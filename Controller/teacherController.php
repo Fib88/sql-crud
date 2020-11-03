@@ -1,2 +1,2 @@
 <?php
-require "View/studentView.php";
+require "View/teacherView.php";
