@@ -17,12 +17,10 @@ var_dump($_POST);
 
 if (isset($_POST["students"])) {
     require 'Controller/studentController.php';
-
 }
 
 if (isset($_POST["teachers"])) {
     require 'Controller/teacherController.php';
-
 }
 if (isset($_POST["classes"])) {
     require 'Controller/courseController.php';
