@@ -1,13 +1,18 @@
 <?php
 
-//if button on overview is clicked load up and show all students
-if(isset($_POST["students"])){
-    $showStudents = new Handler();
-    $students = $showStudents->getStudents();
+
+$showTeachers = new Handler();
+$teachers = $showTeachers->getTeachers();
+
+
+$showTeachers = new Handler();
+$teachers = $showTeachers->getTeachers();
+var_dump($teachers);
+
+
+if (isset($_POST['delete'])) {
+    $showTeachers->deleteTeacher($_POST['id']);
+
 }
 
-
-
-
-
-require "View/studentView.php";
+require "View/teacherView.php";

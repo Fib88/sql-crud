@@ -3,10 +3,10 @@
 ?>
 
 <table>
-    <?php foreach ($courses as $course):?>
+    <?php foreach ($classes as $course):?>
     <tr>
         <td>
-            <a href="index.php?classes=<?php echo $course["id"]; ?>"
+            <a href="index.php?classes=<?php ; ?>"
                class="text-light"><?php echo $course["name"]; ?></a>
         </td>
         <td>
