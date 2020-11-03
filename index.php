@@ -12,6 +12,7 @@ require 'Model/Student.php';
 require 'Model/Teacher.php';
 require 'View/body.php';
 
+
 var_dump($_POST);
 
 if (isset($_POST["students"])) {
