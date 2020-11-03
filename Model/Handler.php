@@ -115,6 +115,17 @@ class Handler
         return $teacherStudents;
     }
 
+    function getTeacherCourse($classid){
+
+        $teachers = $this->getTeachers();
+        foreach($teachers as $teacher){
+            if($teacher['classes_id'] == $classid ){
+                return $teacher;
+            }
+        }
+    }
+
+
     function deleteTeacher($teacherId)
     {
         $teachers =  $this->getTeachers();
