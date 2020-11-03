@@ -1,17 +1,13 @@
 <?php
 
-$showTeachers = new Handler();
-$teachers = $showTeachers->getTeachers();
-
-if(isset($_POST["teachers"])) {
-    $showTeachers = new Handler();
-    $teachers = $showTeachers->getTeachers();
-    var_dump($teachers);
+//if button on overview is clicked load up and show all students
+if(isset($_POST["students"])){
+    $showStudents = new Handler();
+    $students = $showStudents->getStudents();
 }
 
 
-if (isset($_GET['delete'])) {
-  $showTeachers->deleteTeacher($_GET['delete']);
-}
 
-require "View/teacherView.php";
+
+
+require "View/studentView.php";
