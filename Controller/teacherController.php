@@ -5,14 +5,19 @@ $showTeachers = new Handler();
 $teachers = $showTeachers->getTeachers();
 
 
-$showTeachers = new Handler();
-$teachers = $showTeachers->getTeachers();
-var_dump($teachers);
-
 
 if (isset($_POST['delete'])) {
-    $showTeachers->deleteTeacher($_POST['id']);
 
+  $showTeachers->deleteTeacher($_POST['id']);
 }
 
+
+if (isset($_GET['teacher'])) {
+   $students= $showTeachers->getStudentsCourse($_GET['teacher']);
+   $classname=$showTeachers->getClassName($_GET['teacher']);
+   //var_dump($students);
+}
+
+
 require "View/teacherView.php";
+
