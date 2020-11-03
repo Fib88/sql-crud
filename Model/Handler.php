@@ -46,7 +46,8 @@ class Handler
         $classes = $this->getClasses();
         foreach ($classes as $course) {
             if ($course['name'] == $classeName) {
-                $classes_id = $course['id'];}
+                $classes_id = $course['id'];
+            }
         }
         $handle = $this->pdo->prepare('INSERT INTO teachers ( name, email,classes_id) VALUES (:name,:email,:classes_id )');
         $handle->bindValue(':name', $name);
@@ -60,7 +61,8 @@ class Handler
         $classes = $this->getClasses();
         foreach ($classes as $course) {
             if ($course['name'] == $classeName) {
-                $classes_id = $course['id'];}
+                $classes_id = $course['id'];
+            }
         }
         $handle = $this->pdo->prepare('INSERT INTO students ( name, email,classes_id) VALUES (:name,:email,:classes_id )');
         $handle->bindValue(':name', $name);
@@ -69,7 +71,7 @@ class Handler
         $handle->execute();
     }
 
-    public function updateTeacher($id,$name, $email, $classeName)
+    public function updateTeacher($id, $name, $email, $classeName)
     {
         $classes = $this->getClasses();
         foreach ($classes as $course) {
@@ -85,7 +87,7 @@ class Handler
         $handle->execute();
     }
 
-    public function updateStudent($id,$name, $email, $classeName)
+    public function updateStudent($id, $name, $email, $classeName)
     {
         $classes = $this->getClasses();
         foreach ($classes as $course) {
@@ -106,14 +108,26 @@ class Handler
         $students = $this->getStudents();
         $teacherStudents = array();
         foreach ($students as $student) {
-            if ($student['class_id'] == $teacherCourse)
+            if ($student['class_id'] == $teacherCourse) {
                 array_push($teacherStudents, $student);
             }
         }
         return $teacherStudents;
     }
 
+    function deleteTeacher($teacherId)
+    {
+        $teachers = $this->getTeachers();
+        foreach ($teachers as $teacher) {
+            if ($teacher->getId() == $teacherId) {
 
+                $handle = $this->pdo->prepare('ALTER TABLE classes NO CHECK CONSTRAINT ALL; DELETE FROM teachers WHERE id = :id; ALTER TABLE classes CHECK CONSTRAINT ALL;');
+                $handle->bindValue(':id', $teacherId);
+                $handle->execute();
+            }
+        }
+
+    }
 
 
 }
