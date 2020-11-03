@@ -11,7 +11,7 @@ var_dump($teachers);
 
 
 if (isset($_POST['delete'])) {
-  $showTeachers->deleteTeacher($_POST['id']);
+    $showTeachers->deleteTeacher($_POST['id']);
 
 }
 
