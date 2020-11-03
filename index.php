@@ -17,12 +17,10 @@ var_dump($_POST);
 
 if(isset($_GET['page']) && $_GET['page'] === 'students'){
     require 'Controller/studentController.php';
-
 }
 
 if(isset($_GET['page']) && $_GET['page'] === 'teachers'){
     require 'Controller/teacherController.php';
-
 }
 
 if(isset($_GET['page']) && $_GET['page'] === 'classes'){
