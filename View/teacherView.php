@@ -14,12 +14,16 @@
         <td>
             <form method="post">
                 <input type="hidden" name="idupdate" value="<?php echo $teacher['id']?>" />
-                <input type="submit" name="update" value="Update" class="btn btn-sucess">
+                <input type="submit" name="update" value="Update" class="btn btn-sucess"/>
             </form>
         </td>
         <td>
-            <a href="?delete=<?php echo $teacher['id']?>" class="btn btn-danger">Delete</a>
+            <form method="post">
+                <input type="hidden" name="id" value="<?php echo $teacher['id']?>" />
+                <input type="submit" name="delete" value="Delete" class="btn btn-danger">
+            </form>
         </td>
+
     <?php endforeach; ?>
 
 </table>

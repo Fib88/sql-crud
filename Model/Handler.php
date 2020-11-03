@@ -117,11 +117,10 @@ class Handler
 
     function deleteTeacher($teacherId)
     {
-        $teachers = $this->getTeachers();
+        $teachers =  $this->getTeachers();
         foreach ($teachers as $teacher) {
-            if ($teacher->getId() == $teacherId) {
-
-                $handle = $this->pdo->prepare('ALTER TABLE classes NO CHECK CONSTRAINT ALL; DELETE FROM teachers WHERE id = :id; ALTER TABLE classes CHECK CONSTRAINT ALL;');
+            if ($teacher['id'] == $teacherId) {
+                $handle = $this->pdo->prepare('DELETE FROM teachers WHERE id = :id ');
                 $handle->bindValue(':id', $teacherId);
                 $handle->execute();
             }
@@ -133,9 +132,8 @@ class Handler
     {
         $students = $this->getStudents();
         foreach ($students as $student) {
-            if ($student->getId() == $studentId) {
-
-                $handle = $this->pdo->prepare('ALTER TABLE classes NO CHECK CONSTRAINT ALL; DELETE FROM students WHERE id = :id; ALTER TABLE classes CHECK CONSTRAINT ALL;');
+            if ($student['id'] == $studentId) {
+                $handle = $this->pdo->prepare('DELETE FROM students WHERE id = :id;');
                 $handle->bindValue(':id', $studentId);
                 $handle->execute();
             }
@@ -147,7 +145,7 @@ class Handler
     {
         $classes = $this->getClasses();
         foreach ( $classes as $class) {
-            if ($class->getId() == $classId) {
+            if ($class['id'] == $classId) {
                 $handle = $this->pdo->prepare('DELETE FROM classes WHERE id = :id;');
                 $handle->bindValue(':id', $classId);
                 $handle->execute();
