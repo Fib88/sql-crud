@@ -11,6 +11,9 @@ require 'Model/Course.php';
 require 'Model/Student.php';
 require 'Model/Teacher.php';
 require 'View/body.php';
+require 'Controller/courseController.php';
+require 'Controller/studentController.php';
+require 'Controller/teacherController.php';
 
 var_dump($_POST);
 
