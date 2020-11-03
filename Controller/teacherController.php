@@ -14,6 +14,7 @@ if (isset($_POST['delete'])) {
 
 if (isset($_GET['teacher'])) {
    $students= $showTeachers->getStudentsCourse($_GET['teacher']);
+   $classname=$showTeachers->getClassName($_GET['teacher']);
    //var_dump($students);
 }
 

@@ -29,6 +29,8 @@
 </table>
 
 <?php if (isset($_GET['teacher'])): ?>
+    <h2>Class : </h2>
+    <p> <?php echo $classname  ?></p>
     <h2>Students</h2>
     <table class="table table-striped table-wide text-light">
         <thead>

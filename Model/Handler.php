@@ -165,5 +165,17 @@ class Handler
 
     }
 
+    function getClassName($classId)
+    {
+        $classes = $this->getClasses();
+        foreach ( $classes as $class) {
+            if ($class['id'] == $classId) {
+                return $class['name'];
+            }
+        }
+
+    }
+
+
 
 }
