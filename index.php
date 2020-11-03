@@ -15,14 +15,15 @@ require 'View/body.php';
 
 var_dump($_POST);
 
-if (isset($_POST["students"])) {
+if(isset($_GET['page']) && $_GET['page'] === 'students'){
     require 'Controller/studentController.php';
 }
 
-if (isset($_POST["teachers"])) {
+if(isset($_GET['page']) && $_GET['page'] === 'teachers'){
     require 'Controller/teacherController.php';
 }
-if (isset($_POST["classes"])) {
+
+if(isset($_GET['page']) && $_GET['page'] === 'classes'){
     require 'Controller/courseController.php';
 
 } else {
