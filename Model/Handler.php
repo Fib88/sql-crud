@@ -108,12 +108,23 @@ class Handler
         $students = $this->getStudents();
         $teacherStudents = array();
         foreach ($students as $student) {
-            if ($student['class_id'] == $teacherCourse) {
+            if ($student['classes_id'] == $teacherCourse) {
                 array_push($teacherStudents, $student);
             }
         }
         return $teacherStudents;
     }
+
+    function getTeacherCourse($classid){
+
+        $teachers = $this->getTeachers();
+        foreach($teachers as $teacher){
+            if($teacher['classes_id'] == $classid ){
+                return $teacher;
+            }
+        }
+    }
+
 
     function deleteTeacher($teacherId)
     {

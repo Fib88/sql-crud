@@ -8,4 +8,10 @@
     $classes = $showClasses->getClasses();
     var_dump($classes);
 
+    $classTeacher = $showClasses->getTeachers();
+    var_dump($classTeacher);
+
+    $studentsFromClass = $showClasses->getStudents();
+    var_dump($studentsFromClass);
+
 require "View/courseView.php";
