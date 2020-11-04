@@ -46,4 +46,4 @@ if (isset($_POST['add']) && $_POST['add'] == "Update"){
 }
 
 
-    require "View/courseView.php";
+require "View/courseView.php";

@@ -81,3 +81,5 @@
         <input type="submit" name="register" value="Register" class="btn btn-success">
     </form>
 </td>
+
+<?php include "landingpage.php";
