@@ -7,7 +7,9 @@
     if (isset($_GET["student"])) {
         $selectedStudentId = $_GET["student"];
         $studentInfo = $showStudents->getStudent($selectedStudentId);
-        var_dump($studentInfo);
+        $studentsclass = $showStudents->getClassName($studentInfo[0]["classes_id"]);
+        var_dump($studentsclass);
+        //$studentsTeacher = $showStudents->getTeacherCourse()
     }
 require "View/studentView.php";
 

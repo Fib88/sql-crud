@@ -4,7 +4,7 @@
             <td>
 
                 <a href="?page=students&student=<?php echo $student["id"]; ?>"
-                   class="text-light"><?php echo $student["name"]; ?></a>
+                   class="text-dark"><?php echo $student["name"]; ?></a>
             </td>
             <td>
                 <?php echo $student["email"]; ?>
@@ -31,9 +31,20 @@
 <?php if (isset($_GET['student'])): ?>
     <table>
         <tr>
-            <?php echo $studentInfo["id"]?>
-            <?php echo $studentInfo["name"]?>
-            <?php echo $studentInfo["email"]?>
+            <h4>Student Details</h4>
+            <p>Student id:<br>
+            <?php echo $studentInfo[0]["id"]?>
+            </p>
+            <p>Name:<br>
+            <?php echo $studentInfo[0]["name"]?>
+            </p>
+            <p>Email adress:<br>
+            <?php echo $studentInfo[0]["email"]?>
+            </p>
+            <p>Course:</p>
+            <?php echo $studentsClass[0] ?>
+            <p>Teacher:</p>
+
 
         </tr>
     </table>
