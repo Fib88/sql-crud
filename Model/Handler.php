@@ -19,6 +19,12 @@ class Handler
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
 
+    public function getStudent($id)
+    {
+        $handle = $this->pdo->prepare('SELECT * FROM students WHERE id = :id');
+        $handle->execute();
+        return $handle->fetchAll();
+    }
 
     public function getStudents()
     {
@@ -41,14 +47,8 @@ class Handler
         return $handle->fetchAll();
     }
 
-    public function addTeacher($name, $email, $classeName)
+    public function addTeacher($name, $email, $classesId)
     {
-        $classes = $this->getClasses();
-        foreach ($classes as $course) {
-            if ($course['name'] == $classeName) {
-                $classesId = $course['id'];
-            }
-        }
         $handle = $this->pdo->prepare('INSERT INTO teachers (name, email,classes_id) VALUES (:name,:email,:classes_id )');
         $handle->bindValue(':name', $name);
         $handle->bindValue(':email', $email);
@@ -132,7 +132,7 @@ class Handler
         $teachers =  $this->getTeachers();
         foreach ($teachers as $teacher) {
             if ($teacher['id'] == $teacherId) {
-                $handle = $this->pdo->prepare('DELETE FROM teachers WHERE id = :id ');
+                $handle = $this->pdo->prepare('DELETE FROM teachers WHERE id = :id');
                 $handle->bindValue(':id', $teacherId);
                 $handle->execute();
             }
