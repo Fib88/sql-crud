@@ -16,4 +16,19 @@ if (isset($_GET['course'])){
     $teacherShow = $showClasses->getTeacherCourse($_GET['course']);
 }
 
+$updatedClass = [
+    'name' => '',
+    'location' => '',
+    'id' => '',
+];
+
+if(isset($_POST['iupdate'])){
+    $selectedClass = $showClasses->getClasses($_POST['iupdate']);
+    $updatedClass = [
+        'name'=> $selectedClass['0']['name'],
+        'location'=> $selectedClass['0']['location'],
+        'id'=> $selectedClass['id']
+    ];
+}
+
 require "View/courseView.php";
