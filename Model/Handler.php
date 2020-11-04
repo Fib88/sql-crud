@@ -49,6 +49,14 @@ class Handler
         return $handle->fetchAll();
     }
 
+    public function getClass($id)
+    {
+        $handle = $this->pdo->prepare('SELECT * FROM classes WHERE id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+        return $handle->fetchAll();
+    }
+
     public function getClasses()
     {
         $handle = $this->pdo->prepare('SELECT * FROM classes');
@@ -92,6 +100,15 @@ class Handler
         $handle->bindValue(':name', $name);
         $handle->bindValue(':email', $email);
         $handle->bindValue(':classes_id', $classes_id);
+        $handle->execute();
+    }
+
+    public function updateClasses($id, $name, $location)
+    {
+        $handle = $this->pdo->prepare('UPDATE classes SET name =:name, location =:location WHERE id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->bindValue(':name', $name);
+        $handle->bindValue(':location', $location);
         $handle->execute();
     }
 
@@ -188,6 +205,14 @@ class Handler
                 return $teacher['name'];
             }
         }
+    }
+
+    public function addClass($name, $location)
+    {
+        $handle = $this->pdo->prepare('INSERT INTO classes (name,location) VALUES (:name,:location )');
+        $handle->bindValue(':name', $name);
+        $handle->bindValue(':location', $location);
+        $handle->execute();
     }
 
 

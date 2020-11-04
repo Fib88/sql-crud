@@ -34,21 +34,15 @@
         <label for="email">Location:</label><br>
         <input type="text" name="location" value="<?php echo $updatedClass['location']; ?>"><br>
 
-        <select name="course" class="custom-select">
-            <option selected>Please select the correct class</option>
-            <?php foreach ($classes as $course): ?>
-                <option  value="<?php echo $course["id"]; ?>"><?php echo $course["name"]; ?></option>
-            <?php endforeach; ?>
-        </select>
-
-
         <input type="submit" name="add" value="<?php if (isset($_POST['register'])) {
             echo 'Register';
         } ?><?php if (isset($_POST['update'])) {
             echo 'Update';
         } ?>" class="btn btn-success">
 
+
     </form>
+
 <?php endif;?>
 
 
@@ -81,4 +75,9 @@
 
 
     </table>
-<?php endif;
+<?php endif;?>
+<td>
+    <form method="post">
+        <input type="submit" name="register" value="Register" class="btn btn-success">
+    </form>
+</td>
