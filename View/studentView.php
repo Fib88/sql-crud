@@ -2,7 +2,6 @@
     <?php foreach ($students as $student): ?>
         <tr>
             <td>
-
                 <a href="?page=students&student=<?php echo $student["id"]; ?>"
                    class="text-light"><?php echo $student["name"]; ?></a>
             </td>
