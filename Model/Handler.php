@@ -46,15 +46,16 @@ class Handler
         $classes = $this->getClasses();
         foreach ($classes as $course) {
             if ($course['name'] == $classeName) {
-                $classes_id = $course['id'];
+                $classesId = $course['id'];
             }
         }
-        $handle = $this->pdo->prepare('INSERT INTO teachers ( name, email,classes_id) VALUES (:name,:email,:classes_id )');
+        $handle = $this->pdo->prepare('INSERT INTO teachers (name, email,classes_id) VALUES (:name,:email,:classes_id )');
         $handle->bindValue(':name', $name);
         $handle->bindValue(':email', $email);
-        $handle->bindValue(':classes_id', $classes_id);
+        $handle->bindValue(':classes_id', $classesId);
         $handle->execute();
     }
+
 
     public function addStudent($name, $email, $classeName)
     {

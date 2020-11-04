@@ -30,7 +30,7 @@
 
 <?php if (isset($_GET['teacher'])): ?>
     <h2>Class : </h2>
-    <p> <?php echo $classname  ?></p>
+    <p> <?php echo $classname ?></p>
     <h2>Students</h2>
     <table class="table table-striped table-wide text-light">
         <thead>
@@ -53,5 +53,39 @@
     </table>
 <?php endif; ?>
 
+<td>
+    <form method="post">
+        <input type="submit" name="register" value="Register" class="btn btn-success">
+    </form>
+</td>
+
+<?php if (isset($_POST['register']) || isset($_POST['update'])): ?>
 
 
+    <h2><?php if (isset($_POST['register'])) {
+            echo 'Register :';
+        } ?><?php if (isset($_POST['update'])) {
+            echo 'Update :';
+        } ?> </h2>
+    <form method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" value="name"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" name="email" value="email"><br>
+        <label type="course">Please select the correct class</label>
+        <input type="text" name="course" value="course"><br>
+
+
+
+
+        <input type=" submit" name="<?php if (isset($_POST['register'])) {
+                    echo 'register';
+                } ?><?php if (isset($_POST['update'])) {
+                    echo 'update';
+                } ?>" value="<?php if (isset($_POST['register'])) {
+                    echo 'Register';
+                } ?><?php if (isset($_POST['update'])) {
+                    echo 'Update';
+                } ?>">
+    </form>
+<?php endif; ?>
