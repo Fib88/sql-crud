@@ -1,12 +1,12 @@
 <?php
 
 ?>
-
+<h2>Classes</h2>
 <table>
     <?php foreach ($classes as $course):?>
     <tr>
         <td>
-            <a href="?page=classes&course=<?php echo $course["id"]; ?>"class="text-light"><?php echo $course["name"]; ?></a>
+            <a href="?page=classes&course=<?php echo $course["id"]; ?>"class="text-dark"><?php echo $course["name"]; ?></a>
         </td>
         <td>
             <?php echo $course["location"]; ?>
@@ -19,7 +19,7 @@
 
 <?php if (isset($_GET['course'])): ?>
     <h2>Students</h2>
-    <table class="table table-striped table-wide text-light">
+    <table class="table table-striped table-wide text-dark">
         <thead>
         <tr>
             <th>Name</th>

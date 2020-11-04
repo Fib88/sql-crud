@@ -11,9 +11,9 @@ require 'Model/Course.php';
 require 'Model/Student.php';
 require 'Model/Teacher.php';
 require 'View/body.php';
+require 'View/includes/header.php';
 
 
-var_dump($_POST);
 
 if(isset($_GET['page']) && $_GET['page'] === 'students'){
     require 'Controller/studentController.php';
