@@ -41,6 +41,14 @@ class Handler
         return $handle->fetchAll();
     }
 
+    public function getTeacher($id)
+    {
+        $handle = $this->pdo->prepare('SELECT * FROM teachers WHERE id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+        return $handle->fetchAll();
+    }
+
     public function getClasses()
     {
         $handle = $this->pdo->prepare('SELECT * FROM classes');
@@ -73,19 +81,13 @@ class Handler
         $handle->execute();
     }
 
-    public function updateTeacher($id, $name, $email, $classeName)
+    public function updateTeacher($id, $name, $email, $classesId)
     {
-        $classes = $this->getClasses();
-        foreach ($classes as $course) {
-            if ($course['name'] == $classeName) {
-                $classes_id = $course['id'];
-            }
-        }
         $handle = $this->pdo->prepare('UPDATE teachers SET name =:name, email =:email, classes_id = :classes_id WHERE id = :id');
         $handle->bindValue(':id', $id);
         $handle->bindValue(':name', $name);
         $handle->bindValue(':email', $email);
-        $handle->bindValue(':classes_id', $classes_id);
+        $handle->bindValue(':classes_id', $classesId);
         $handle->execute();
     }
 

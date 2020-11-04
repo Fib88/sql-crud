@@ -70,9 +70,9 @@
         } ?> </h2>
     <form method="post">
         <label for="name">Name:</label><br>
-        <input type="text" name="name" value="name"><br>
+        <input type="text" name="name" value="<?php echo $updatedTeacher['name']; ?>"><br>
         <label for="email">Email:</label><br>
-        <input type="text" name="email" value="email"><br>
+        <input type="text" name="email" value="<?php echo $updatedTeacher['email']; ?>"><br>
 
         <select name="course" class="custom-select">
             <option selected>Please select the correct class</option>
