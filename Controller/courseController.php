@@ -19,6 +19,8 @@
     if(isset($_GET['course'])){
         $students = $showClasses->getStudentsCourse($_GET['course']);
         var_dump($students);
+        echo "lololol";
+        var_dump($_GET['course']);
     }
 
 require "View/courseView.php";

@@ -6,8 +6,7 @@
     <?php foreach ($classes as $course):?>
     <tr>
         <td>
-            <a href="?page=classes&course=<?php echo $course["id"]; ?>
-               class="text-light"><?php echo $course["name"]; ?></a>
+            <a href="?page=classes&course=<?php echo $course["id"]; ?>"class="text-light"><?php echo $course["name"]; ?></a>
         </td>
         <td>
             <?php echo $course["location"]; ?>
