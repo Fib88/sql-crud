@@ -22,6 +22,7 @@ class Handler
     public function getStudent($id)
     {
         $handle = $this->pdo->prepare('SELECT * FROM students WHERE id = :id');
+        $handle->bindValue(':id', $id);
         $handle->execute();
         return $handle->fetchAll();
     }
