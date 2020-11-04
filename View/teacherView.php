@@ -69,6 +69,7 @@
             echo 'Update :';
         } ?> </h2>
     <form method="post">
+        <input type="hidden" name="id" value="<?php echo $updatedTeacher['id'] ?>"/>
         <label for="name">Name:</label><br>
         <input type="text" name="name" value="<?php echo $updatedTeacher['name']; ?>"><br>
         <label for="email">Email:</label><br>

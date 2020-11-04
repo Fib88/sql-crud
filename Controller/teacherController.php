@@ -29,7 +29,6 @@ if (isset($_POST['idupdate'])) {
         'email' => $selectedTeacher[0]['email'],
         'id' => $_POST['idupdate'],
     ];
-    var_dump($selectedTeacher);
 }
 
 
@@ -38,12 +37,9 @@ if (isset($_POST['add']) && $_POST['add'] == "Register") {
 }
 
 if (isset($_POST['add']) && $_POST['add'] == "Update") {
-    $showTeachers->updateTeacher($updatedTeacher['id'], $_POST['name'], $_POST['email'], $_POST['course']);
+    $showTeachers->updateTeacher($_POST['id'], $_POST['name'], $_POST['email'], $_POST['course']);
 }
 
-
-var_dump($_GET);
-var_dump($_POST);
 
 require "View/teacherView.php";
 
