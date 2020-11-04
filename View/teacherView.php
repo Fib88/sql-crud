@@ -78,7 +78,7 @@
         <select name="course" class="custom-select">
             <option selected>Please select the correct class</option>
             <?php foreach ($classes as $course): ?>
-                <option  value="<?php echo $course["id"]; ?>"><?php echo $course["name"]; ?></option>
+                <option value="<?php echo $course["id"]; ?>"><?php echo $course["name"]; ?></option>
             <?php endforeach; ?>
         </select>
 

@@ -13,7 +13,7 @@
         <td>
             <form method="post">
                 <input type="hidden" name="idupdate" value="<?php echo $student['id'] ?>"/>
-                <input type="submit" name="update" value="Update" class="btn btn-sucess"/>
+                <input type="submit" name="update" value="Update" class="btn btn-primary"/>
             </form>
         </td>
         <td>
@@ -32,19 +32,19 @@
         <tr>
             <h4>Student Details</h4>
             <p>Student id:<br>
-            <?php echo $studentInfo[0]["id"]?>
+                <?php echo $studentInfo[0]["id"] ?>
             </p>
             <p>Name:<br>
-            <?php echo $studentInfo[0]["name"]?>
+                <?php echo $studentInfo[0]["name"] ?>
             </p>
             <p>Email adress:<br>
-            <?php echo $studentInfo[0]["email"]?>
+                <?php echo $studentInfo[0]["email"] ?>
             </p>
             <p>Course:<br>
-            <?php echo $studentsClass ?>
+                <?php echo $studentsClass ?>
             </p>
             <p>Teacher:<br>
-            <?php echo $teacherFromCourse ?>
+                <?php echo $teacherFromCourse ?>
             </p>
 
 
@@ -68,24 +68,24 @@
             echo 'Update :';
         } ?> </h2>
     <form method="post">
+        <input type="hidden" name="id" value="<?php echo $updatedStudent['id'] ?>"/>
         <label for="name">Name:</label><br>
-        <input type="text" name="name" value="name"><br>
+        <input type="text" name="name" value="<?php echo $updatedStudent['name']; ?>"><br>
         <label for="email">Email:</label><br>
-        <input type="text" name="email" value="email"><br>
-        <label type="course">Please select the correct class</label>
-        <input type="text" name="course" value="course"><br>
+        <input type="text" name="email" value="<?php echo $updatedStudent['email']; ?>"><br>
+        <select name="course" class="custom-select">
+            <option selected>Please select the correct class</option>
+            <?php foreach ($classes as $course): ?>
+                <option value="<?php echo $course["id"]; ?>"><?php echo $course["name"]; ?></option>
+            <?php endforeach; ?>
+        </select>
 
-
-
-
-        <input type=" submit" name="<?php if (isset($_POST['register'])) {
-            echo 'register';
-        } ?><?php if (isset($_POST['update'])) {
-            echo 'update';
-        } ?>" value="<?php if (isset($_POST['register'])) {
+        <input type="submit" name="add" value="<?php if (isset($_POST['register'])) {
             echo 'Register';
         } ?><?php if (isset($_POST['update'])) {
             echo 'Update';
-        } ?>">
+        } ?>" class="btn btn-success">
+
+
     </form>
 <?php endif; ?>
