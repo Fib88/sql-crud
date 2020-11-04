@@ -28,10 +28,12 @@
 </table>
 
 <?php if (isset($_GET['student'])): ?>
-    <?php $Student->getStudent($id) ?>
     <table>
         <tr>
-            <?php echo $student["name"]?>
+            <?php echo $studentInfo["id"]?>
+            <?php echo $studentInfo["name"]?>
+            <?php echo $studentInfo["email"]?>
+
         </tr>
     </table>
 
