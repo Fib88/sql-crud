@@ -1,10 +1,11 @@
+<?php require 'includes/header.php' ?>
 <table>
     <?php foreach ($teachers as $teacher): ?>
         <tr>
             <td>
 
                 <a href="?page=teachers&teacher=<?php echo $teacher["classes_id"]; ?>"
-                   class="text-light"><?php echo $teacher["name"]; ?></a>
+                ><?php echo $teacher["name"]; ?></a>
             </td>
             <td>
                 <?php echo $teacher["email"]; ?>
@@ -14,7 +15,7 @@
         <td>
             <form method="post">
                 <input type="hidden" name="idupdate" value="<?php echo $teacher['id'] ?>"/>
-                <input type="submit" name="update" value="Update" class="btn btn-sucess"/>
+                <input type="submit" name="update" value="Update" class="btn btn-primary"/>
             </form>
         </td>
         <td>
@@ -32,7 +33,7 @@
     <h2>Class : </h2>
     <p> <?php echo $classname ?></p>
     <h2>Students</h2>
-    <table class="table table-striped table-wide text-light">
+    <table class="table table-striped table-wide">
         <thead>
         <tr>
             <th>Name</th>
@@ -72,20 +73,22 @@
         <input type="text" name="name" value="name"><br>
         <label for="email">Email:</label><br>
         <input type="text" name="email" value="email"><br>
-        <label type="course">Please select the correct class</label>
-        <input type="text" name="course" value="course"><br>
+
+        <select name="course" class="custom-select">
+            <option selected>Please select the correct class</option>
+            <?php foreach ($classes as $course): ?>
+                <option  value="<?php echo $course["id"]; ?>"><?php echo $course["name"]; ?></option>
+            <?php endforeach; ?>
+        </select>
 
 
+        <input type="submit" name="add" value="<?php if (isset($_POST['register'])) {
+            echo 'Register';
+        } ?><?php if (isset($_POST['update'])) {
+            echo 'Update';
+        } ?>" class="btn btn-success">
 
-
-        <input type=" submit" name="<?php if (isset($_POST['register'])) {
-                    echo 'register';
-                } ?><?php if (isset($_POST['update'])) {
-                    echo 'update';
-                } ?>" value="<?php if (isset($_POST['register'])) {
-                    echo 'Register';
-                } ?><?php if (isset($_POST['update'])) {
-                    echo 'Update';
-                } ?>">
     </form>
+
+
 <?php endif; ?>

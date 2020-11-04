@@ -18,10 +18,10 @@ if (isset($_GET['teacher'])) {
 }
 
 
-
-if (isset($_POST['submit'])) {
+if (isset($_POST['add'])) {
     $showTeachers->addTeacher($_POST['name'], $_POST['email'], $_POST['course']);
 }
+
 
 
 require "View/teacherView.php";
