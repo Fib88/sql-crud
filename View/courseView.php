@@ -2,7 +2,7 @@
 
 ?>
 <h2>Classes</h2>
-<table>
+<table table-striped table-wide text-dark>
     <?php foreach ($classes as $course):?>
     <tr>
         <td>
