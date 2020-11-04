@@ -180,6 +180,28 @@ class Handler
 
     }
 
+    function getClassId($className)
+    {
+        $classes = $this->getClasses();
+        foreach ( $classes as $class) {
+            if ($class['name'] == $className) {
+                return $class['id'];
+            }
+        }
+
+    }
+
+    function getTeacherFromCourse($name){
+
+        $teachers = $this->getTeachers();
+        $classid =  $this->getClassId($name);
+        foreach($teachers as $teacher){
+            if($teacher['id'] == $classid ){
+                return $teacher["name"];
+            }
+        }
+    }
+
 
 
 }

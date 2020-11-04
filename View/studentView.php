@@ -40,9 +40,12 @@
             <p>Email adress:<br>
             <?php echo $studentInfo[0]["email"]?>
             </p>
-            <p>Course:</p>
-            <?php echo $studentsClass[0] ?>
-            <p>Teacher:</p>
+            <p>Course:<br>
+            <?php echo $studentsClass ?>
+            </p>
+            <p>Teacher:<br>
+            <?php echo $teacherFromCourse ?>
+            </p>
 
 
         </tr>
